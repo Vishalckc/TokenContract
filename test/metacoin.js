@@ -2,7 +2,8 @@ var MetaCoin = artifacts.require("./MetaCoin.sol");
 var async = require('asyncawait/async');
 var await = require('asyncawait/await');
 
-contract('MetaCoin', function(accounts) {
+contract('MetaCoin', function(accounts) 
+{
   it("should put 10000 MetaCoin in the first account", function() {
     return MetaCoin.deployed().then(function(instance) {
       return instance.getBalance.call(accounts[0]);
@@ -88,20 +89,6 @@ var balance = async(()=> {
    console.log(typeof balances);
    console.log(balances);
   // resolve();
-
-   /*var testPromise = new Promise(function(resolve, reject) {
-      var deployed = await(MetaCoin.deployed());
-      var balanceOf = await(deployed.balanceOf());
-      var balance = await(balanceOf);
-      console(balance);
-    });
-    try{
-        var result = await(testPromise);
-        expect(result.toNumber()).to.equal(10000);
-        done();
-    } catch(err) {
-        done();
-    }*/
 });
 
 it.only("secondary",balance);  
